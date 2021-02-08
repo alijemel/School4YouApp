@@ -28,7 +28,7 @@ public class SickNoteResource {
      * @param sickNote the new note to be saved.
      * @return Response Object containing the new note and a message.
      */
-    @PostMapping (path = "/sickNotes/create")
+    @PostMapping(path = "/sickNotes/create")
     public ResponseObject createSickNote(@RequestBody SickNote sickNote) {
         sickNoteRepository.save(sickNote);
         return new ResponseObject(sickNote, "Krankmeldung erstellt!");
@@ -40,7 +40,7 @@ public class SickNoteResource {
      *
      * @param noteId Id of the note to be approved.
      */
-    @PutMapping (path = "/sickNotes/approve/{noteId}")
+    @PutMapping(path = "/sickNotes/approve/{noteId}")
     public void approveSickNoteById(@PathVariable Long noteId) {
         SickNote targetNote = sickNoteRepository.findById(noteId).get();
         targetNote.setApproved(true);
@@ -53,7 +53,7 @@ public class SickNoteResource {
      *
      * @param noteId Id of the note to be approved.
      */
-    @PutMapping (path = "/sickNotes/disapprove/{noteId}")
+    @PutMapping(path = "/sickNotes/disapprove/{noteId}")
     public void disapproveSickNoteById(@PathVariable Long noteId) {
         SickNote targetNote = sickNoteRepository.findById(noteId).get();
         targetNote.setApproved(false);
@@ -70,9 +70,9 @@ public class SickNoteResource {
      * @param roleAsString String representation of the specified role.
      * @return List of the still not approved sick-notes.
      */
-    @GetMapping (path = "/administration/sickNotes/unapproved/{roleAsString}")
+    @GetMapping(path = "/administration/sickNotes/unapproved/{roleAsString}")
     List<SickNote> getAllUnapprovedSickNotesByRole(@PathVariable
-                                                           String roleAsString){
+                                                           String roleAsString) {
         //Hier parameter exception
         Role targetRole = Role.valueOf(roleAsString);
         return sickNoteRepository
@@ -90,9 +90,9 @@ public class SickNoteResource {
      * @param roleAsString String representation of the specified role.
      * @return List of the approved sick-notes.
      */
-    @GetMapping (path = "/administration/sickNotes/approved/{roleAsString}")
+    @GetMapping(path = "/administration/sickNotes/approved/{roleAsString}")
     List<SickNote> getAllApprovedSickNotesByRole(@PathVariable
-                                                           String roleAsString){
+                                                         String roleAsString) {
         //Hier parameter exception
         Role targetRole = Role.valueOf(roleAsString);
         return sickNoteRepository
@@ -106,7 +106,7 @@ public class SickNoteResource {
      *
      * @param noteId Id of the note to be deleted.
      */
-    @DeleteMapping (path = "/administration/sickNotes/delete/{noteId}")
+    @DeleteMapping(path = "/administration/sickNotes/delete/{noteId}")
     public void deleteSickNoteById(@PathVariable Long noteId) {
         sickNoteRepository.deleteById(noteId);
     }
@@ -123,10 +123,10 @@ public class SickNoteResource {
      * and in the future are retrieved.
      *
      * @param roleAsString String representation of the specified role.
-     * @param classId Id of the class.
+     * @param classId      Id of the class.
      * @return
      */
-    @GetMapping (path = "/notifications/sickNotes/{classId}/{roleAsString}")
+    @GetMapping(path = "/notifications/sickNotes/{classId}/{roleAsString}")
     public List<SickNote>
     getAllSickNotesByClassAndRole(@PathVariable String roleAsString,
                                   @PathVariable Long classId) {
