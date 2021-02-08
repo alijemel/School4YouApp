@@ -13,13 +13,10 @@ import java.util.List;
 public class Parent extends User {
 
     private Long familyId;
-//    @ManyToMany
-//    private List<Student> children;
     public Parent(){}
     public Parent(String firstName, String lastName, String email
             ,String password, String role, LocalDate birthDate) {
         super(firstName,lastName,email,password,role,birthDate);
-//        this.children = new ArrayList<>();
     }
 
     public Long getFamilyId() {
@@ -29,12 +26,4 @@ public class Parent extends User {
     public void setFamilyId(Long familyId) {
         this.familyId = familyId;
     }
-
-//    public List<Student> getChildren() {
-//        return children;
-//    }
-//
-//    public void setChildren(List<Student> children) {
-//        this.children = children;
-//    }
 }

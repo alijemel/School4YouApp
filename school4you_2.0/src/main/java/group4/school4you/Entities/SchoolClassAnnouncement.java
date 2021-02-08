@@ -14,7 +14,6 @@ public class SchoolClassAnnouncement {
         @Id
         @GeneratedValue
         private Long id;
-
         private Long classId;
         private String creatorFirstName;
         private String creatorLastName;

@@ -14,8 +14,4 @@ public class BasicAuthenticationController {
     public AuthenticationBean authenticationBean() {
         return new AuthenticationBean("Authentication successful");
     }
-
-
-
-
 }
