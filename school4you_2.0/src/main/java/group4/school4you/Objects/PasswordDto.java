@@ -1,7 +1,9 @@
 package group4.school4you.Objects;
 
-import java.util.Objects;
+// Objeckt representation von einem passwort damit wir es nicht in url paths
+// senden sondern als objekt es ist sicherer.
 
+import java.util.Objects;
 public class PasswordDto {
 
     private String password;
