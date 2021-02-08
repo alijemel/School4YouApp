@@ -12,21 +12,14 @@ import java.util.Optional;
 @Primary
 public interface UserJpaRepository extends JpaRepository<User,Long> {
 
-    //User findByEmailAndPassword (String Email,String password);
     User findByEmail(String Email);
-//    Optional<User> findById(Long id);
-    //List <User> findByRole (String role);
+
      Optional<User> findByResetToken(String resetToken);
 
      Boolean existsByEmail(String email);
      Boolean existsByResetToken(String resetToken);
 
-
-
-
-
     List<User> findAll();
     List<User> findAllByRole(String role);
 
-   // List<User> findByRole();
 }
