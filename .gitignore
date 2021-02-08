@@ -32,3 +32,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
