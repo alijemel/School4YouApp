@@ -214,5 +214,4 @@ public class SchoolClassResource {
     public List<Student> getAllStudentsClass(@PathVariable Long classId) {
         return schoolClassService.findAllStudents(classId);
     }
-
 }

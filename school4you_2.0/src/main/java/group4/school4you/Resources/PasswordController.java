@@ -22,13 +22,25 @@ public class PasswordController {
     @Autowired
     private EmailService emailService;
 
+    /**
+     * Verifies if the email is valid for the password reset process.
+     * If the email adress is valid an email with a reset password link will
+     * be sent to the email adress and a random reset-token is assigned to the
+     * user. When clicked this links redirects to the reset password page of
+     * the application.
+     *
+     * @param email       email to verify.
+     * @param environment 'development' if locally in development mode,
+     *                    'production' if the app is deployed.
+     * @return Response Object containing a boolean value true if email valid
+     * and false if not valid. And a message as feedback.
+     */
     @GetMapping(path = "/rest-password/verify-email/{email}/{environment}")
     public ResponseObject verifyEmail(@PathVariable String email,
                                       @PathVariable String environment) {
         if (!userJpaRepository.existsByEmail(email)) {
-            return new ResponseObject(false," Email Adresse existiert nicht!" );
-        }
-        else {
+            return new ResponseObject(false, " Email Adresse existiert nicht!");
+        } else {
             User user = userJpaRepository.findByEmail(email);
             user.setResetToken(UUID.randomUUID().toString());
             userJpaRepository.save(user);
@@ -40,12 +52,8 @@ public class PasswordController {
             } else {
                 appUrl =
                         "http://132.231.36.104:8080/reset-password/enter" +
-                        "-password";
-                //"http://localhost:8080/reset-password/enter-password";
+                                "-password";
             }
-
-
-
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
             passwordResetEmail.setFrom("alijemel2016@gmail.com");
             passwordResetEmail.setTo(user.getEmail());
@@ -54,24 +62,40 @@ public class PasswordController {
                     "Passwort ändern:\n" + appUrl
                     + "/" + user.getResetToken());
             emailService.sendEmail(passwordResetEmail);
-            return new ResponseObject(true,"Eine Email wurde gesendet!" );
-
+            return new ResponseObject(true, "Eine Email wurde gesendet!");
         }
     }
 
-    @GetMapping (path = "/reset-password/validate-token/{token}")
-    public ResponseObject validateResetToken(@PathVariable String token){
-        if(userJpaRepository.existsByResetToken(token)) {
+    /**
+     * Checks if the reset token is valid. It is valid if a user is found
+     * that has this token value in his reset-token field.
+     *
+     * @param token password-reset token.
+     * @return true if the token is valid, false if not and a response
+     * message as Response object.
+     */
+    @GetMapping(path = "/reset-password/validate-token/{token}")
+    public ResponseObject validateResetToken(@PathVariable String token) {
+        if (userJpaRepository.existsByResetToken(token)) {
             return new ResponseObject(true, "Sie können ein neues Passwort " +
                     "setzen!");
         } else {
-            return new ResponseObject(false,"Reset Link nicht zulässig! ");
+            return new ResponseObject(false, "Reset Link nicht zulässig! ");
         }
     }
 
-    @PutMapping (path = "/reset-password/set-new-password/{token}")
+    /**
+     * Verifies the password-reset token and and resets user password if the
+     * token is valid.
+     *
+     * @param newPassword new Password.
+     * @param token       password-reset token.
+     * @return true if the password successfully changes, false if not, and a
+     * message as response object.
+     */
+    @PutMapping(path = "/reset-password/set-new-password/{token}")
     public ResponseObject setNewPassword(@RequestBody PasswordDto newPassword,
-                                         @PathVariable String token)  {
+                                         @PathVariable String token) {
         Optional<User> user = userJpaRepository.findByResetToken(token);
         if (user.isPresent()) {
             User resetUser = user.get();
@@ -84,8 +108,4 @@ public class PasswordController {
                     "versuchen Sie erneut mit einem neuen Link!");
         }
     }
-
-
-
-
 }

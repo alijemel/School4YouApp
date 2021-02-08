@@ -21,11 +21,17 @@ public class AnnouncementResource {
     @Autowired
     InboxRepository inboxRepository;
 
-    @PostMapping (path = "/announcements/new")
+    /**
+     * Creates an announcement.
+     *
+     * @param announcement announcement to be created.
+     * @return created announcement.
+     */
+    @PostMapping(path = "/announcements/new")
     public Announcement createAnnouncement(
-            @RequestBody Announcement announcement ) {
+            @RequestBody Announcement announcement) {
         Announcement newAnnouncement = new
-                Announcement(announcement.getSubject(),announcement.getContent());
+                Announcement(announcement.getSubject(), announcement.getContent());
         newAnnouncement.setCreatorId(announcement.getCreatorId());
         newAnnouncement.setCreatorFirstName(announcement.getCreatorFirstName());
         newAnnouncement.setCreatorLastName(announcement.getCreatorLastName());
@@ -41,8 +47,15 @@ public class AnnouncementResource {
         return announcementRepository.save(newAnnouncement);
     }
 
+    /**
+     * Edits an announcement.
+     *
+     * @param id      Id of the announcement to be edited.
+     * @param neuData edited Announcement.
+     * @return announcement after edit.
+     */
     @Transactional
-    @PutMapping (path = "/announcements/edit/{id}")
+    @PutMapping(path = "/announcements/edit/{id}")
     public Announcement editAnnouncement(@PathVariable Long id,
                                          @RequestBody Announcement neuData) {
 
@@ -54,8 +67,14 @@ public class AnnouncementResource {
         return announcementRepository.save(toEdit);
     }
 
+    /**
+     * Deletes an announcement by its Id.
+     *
+     * @param id Id of the announcement to be deleted.
+     * @return Response entity with a message and HTTP status.
+     */
     @Transactional
-    @DeleteMapping (path = "/announcements/delete/{id}")
+    @DeleteMapping(path = "/announcements/delete/{id}")
     public ResponseEntity<String> deleteAnnouncement(@PathVariable Long id) {
         Announcement toDelete = announcementRepository.findById(id).get();
         for (Inbox inb : toDelete.getInboxes()) {
@@ -65,12 +84,18 @@ public class AnnouncementResource {
         if (toDelete.getInboxes().isEmpty()) {
             announcementRepository.deleteById(id);
         }
-
         return new ResponseEntity<>("Announcement deleted", HttpStatus.OK);
     }
 
-    @GetMapping (path = "/inbox/{role}")
-        public Inbox getInboxByRole(@PathVariable Role role) {
+    /**
+     * Gets the inbox of a specific role Containing the announcements for
+     * this role.
+     *
+     * @param role role corresponding to the inbox.
+     * @return the inbox containing the announcements.
+     */
+    @GetMapping(path = "/inbox/{role}")
+    public Inbox getInboxByRole(@PathVariable Role role) {
 
         return inboxRepository.findByRole(role);
     }
