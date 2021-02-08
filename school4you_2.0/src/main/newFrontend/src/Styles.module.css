@@ -1,0 +1,23 @@
+.Wellcome {
+    color: burlywood;
+  }
+.NotApproved {
+  color: brown;
+}
+.test{
+  background-color: honeydew;
+ position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  
+}
+.box {
+  background-color: honeydew;
+ position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}

@@ -1,0 +1,43 @@
+.SchoolClasses {
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+}
+.SchoolClass {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.lol{
+  width:250px; /* or whatever width you want. */
+   max-width:250px; /* or whatever width you want. */
+   min-width: 250px;
+  height :250px; /* or whatever width you want. */
+   max-height:250px; /* or whatever width you want. */
+   min-height: 250px;
+   display : inline-block
+}
+
+
+
+.red {
+    color: red;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  
+  
+  .Button.Red {
+    background-color: red;
+  }
+  .Button.Red:hover {
+    background-color: salmon;
+  }

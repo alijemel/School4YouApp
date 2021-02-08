@@ -1,0 +1,13 @@
+button {
+    background-color: aquamarine;
+    font-size: 16px;
+    padding: 15px 30px;
+    color: azure;
+    width: 80px;
+}
+
+.count {
+    font-size: 20px;
+    padding: 15px 30px;
+
+}
