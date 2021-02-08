@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Primary
+/**
+ * This interface represents the table in the database where inbox objects are stored. With creating instances of this
+ * interface the backend is able to communicate with the database tables and manipulate them.
+ */
 public interface InboxRepository extends JpaRepository<Inbox,Long> {
 
     boolean existsByRole(Role role);

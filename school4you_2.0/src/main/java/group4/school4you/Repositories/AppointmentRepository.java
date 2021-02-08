@@ -11,6 +11,10 @@ import java.util.List;
 
 @Repository
 @Primary
+/**
+ * This interface represents the table in the database where appointment objects are stored. With creating instances
+ * of this interface the backend is able to communicate with the database tables and manipulate them.
+ */
 public interface AppointmentRepository extends JpaRepository <Appointment,
         Long> {
     List<Appointment> findAllByTeacherIdAndDateAndSlotAndClassIdNot(Long teacherId,
