@@ -1,5 +1,8 @@
 package group4.school4you.Objects;
 
+// Dto representation von einem teacher weil ein teacher objekt sehr groß ist
+// als reponse zu http anfragen. Es ist einfach nur ein teacher aber
+// zusammesgefasst zu seiner nötigen felder
 public class TeacherDto {
 
     private Long id;

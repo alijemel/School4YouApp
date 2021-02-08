@@ -1,5 +1,8 @@
 package group4.school4you.Objects;
 
+// Representiert die reponse vom backend zu einer anfrage von frontent.
+// enthält ein ojekt was irgendwas sein kann und ein message zum beispiel
+// succes oder invalid oder so
 public class ResponseObject {
 
     private Object object;
