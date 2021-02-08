@@ -19,8 +19,6 @@ public class SickNoteService {
     @Autowired
     private SchoolClassRepository schoolClassRepository;
 
-
-
     public List<SickNote> getAllSickNotesByClassAndRole(String roleAsString,
                                                         Long classId) {
         List<SickNote> sickNotes = new ArrayList<>();
