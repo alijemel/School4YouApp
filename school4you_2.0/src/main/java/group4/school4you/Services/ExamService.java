@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+/**
+ * This service provides some helping methods for the exam resource.
+ */
 public class ExamService {
 
     @Autowired
@@ -36,10 +39,14 @@ public class ExamService {
         return  examRepository.findAllByTeacherId(teacherId);
     }
 
-    //List with DateAndSlot that are in the selected class and exams of the
-    // actual
-    // teacher in other classes, those dates are not available when a teacher
-    // wants to create an exam for a class.
+
+    /**
+     * This method is searching for all slots which are unavailable for a certain teacher in combination with a
+     * certain class to create an exam at these slots.
+     * @param teacherId The teacher we are searching unavailable slots for.
+     * @param classId The class we are searching unavailable slots for.
+     * @return A list of all unavailable slots.
+     */
     public List<DateAndSlot> getUnavailableByTeacherAndClass(Long teacherId,
                                                              Long classId) {
         List <DateAndSlot> unavailable = new ArrayList<>();
@@ -65,6 +72,15 @@ public class ExamService {
     // exam (this can b e in the actual class or another one of his classes.
     //2) If a teacher tries To create an exam on a time where ANOTHER TEACHER
     // of the class has a course : we throw an exception
+
+    /**
+     * This method is for the teacher to create an exam in a certain schoolClass. If he wants to create an exam on
+     * a time he is teaching the class then the course object is replaced by an exam object. If the teacher tries
+     * to create an exam on a time another teacher is teaching the class the method throws an exception.
+     * @param newData The exam a teacher wants to create.
+     * @return a message if the exam was created successfully or if it throwed an exception, too.
+     * @throws RuntimeException
+     */
     public ResponseObject createExam(Exam newData) throws RuntimeException {
         Long classId = newData.getClassId();
         Long teacherId = newData.getTeacherId();
@@ -103,6 +119,11 @@ public class ExamService {
 
     }
 
+    /**
+     * The method is to delete an existing exam from the database.
+     * @param examId The id from the exam we want to delete.
+     * @return A message if the deleting was successfully or not.
+     */
     public ResponseObject deleteExam(Long examId) {
         Exam toDelete = findById(examId);
         examRepository.delete(toDelete);

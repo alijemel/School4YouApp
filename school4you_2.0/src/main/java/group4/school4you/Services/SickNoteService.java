@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+/**
+ * This service provides some helping methods for the sickNote resource.
+ */
 public class SickNoteService {
 
     @Autowired

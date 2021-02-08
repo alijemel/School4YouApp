@@ -7,6 +7,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service("emailService")
+/**
+ * This class implements the interface EmailService and represents a simple email sender.
+ */
 public class EmailServiceImpl implements EmailService {
 
 
