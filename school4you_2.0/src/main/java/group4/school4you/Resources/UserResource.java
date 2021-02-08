@@ -15,7 +15,6 @@ public class UserResource {
 
     @Autowired
     private UserService userService;
-
     @Autowired
     private UserJpaRepository userJpaRepository;
     @Autowired
@@ -29,50 +28,76 @@ public class UserResource {
     @Autowired
     private ParentRepository parentRepository;
 
-        @GetMapping(path = "/{role}/all")
-    public List<User> getAllByRole(@PathVariable String role) {
-            if (role.equals("student")) {
-                List<User> allStudents = studentRepository.findAll();
-                return allStudents;
-            } else if (role.equals("teacher")) {
-                List<User> allTeachers = teacherRepository.findAll();
-                return allTeachers;
-            } else if (role.equals("secretary")) {
-                List<User> allSecretary = secretaryRepository.findAll();
-                return allSecretary;
-            } else if (role.equals("admin")) {
-                List<User> allAdmin = adminRepository.findAll();
-                return allAdmin;
-            } else if(role.equals("parent")) {
-                List<User> allParents = parentRepository.findAll();
-                return allParents;
-            }
-            return null;
-        }
 
-    @GetMapping(path = "/users/{id}")
-        public User getAllByRole(@PathVariable Long id) {
-            return userJpaRepository.findById(id).get();
+    /**
+     * returns users of the role specified in the path.
+     *
+     * @param role the role of the users to be returned.
+     * @return List of users of that role or null if role not specified.
+     */
+    @GetMapping(path = "/{role}/all")
+    public List<User> getAllByRole(@PathVariable String role) {
+        if (role.equals("student")) {
+            List<User> allStudents = studentRepository.findAll();
+            return allStudents;
+        } else if (role.equals("teacher")) {
+            List<User> allTeachers = teacherRepository.findAll();
+            return allTeachers;
+        } else if (role.equals("secretary")) {
+            List<User> allSecretary = secretaryRepository.findAll();
+            return allSecretary;
+        } else if (role.equals("admin")) {
+            List<User> allAdmin = adminRepository.findAll();
+            return allAdmin;
+        } else if (role.equals("parent")) {
+            List<User> allParents = parentRepository.findAll();
+            return allParents;
+        }
+        return null;
     }
 
-
+    /**
+     * return all users stored ion the database.
+     *
+     * @return all users.
+     */
     @GetMapping(path = "/users/all")
     public List<User> getAllUsers() {
-            return userJpaRepository.findAll();
+        return userJpaRepository.findAll();
     }
 
+
+    /**
+     * returns all existing email Adresses. This is for example used in the
+     * frontend for the login to display errors.
+     *
+     * @return List of all existing email adresses.
+     */
     @GetMapping(path = "/users/existingEmails")
     public List<String> getAllExistingEmails() {
         return userService.getExistingEmails();
     }
 
+    /**
+     * retrieves existing email Adresses for users of a specific role.
+     *
+     * @param role the specified role.
+     * @return list of existing emails corresponding to the specified role.
+     */
     @GetMapping(path = "/{role}/existingEmails")
     public List<String> getExistingEmailsByRole(@PathVariable String role) {
         return userService.getExistingEmailsByRole(role);
     }
 
 
-
+    /**
+     * Creates a new user of a specified role and saves it in the database.
+     *
+     * @param role the role of the new user to be created.
+     * @param user Requestbody that specifies the attributes of the user to
+     *             be created.
+     * @return the created user or null if role not valid.
+     */
     @PostMapping(path = "/{role}/neu")
     public User createUser(@PathVariable String role, @RequestBody User user) {
 
@@ -100,19 +125,24 @@ public class UserResource {
             Parent neuParent = new Parent(user.getFirstName(),
                     user.getLastName(), user.getEmail(), user.getPassword(),
                     user.getRole(), user.getBirthDate());
-            return adminRepository.save(neuParent);
+            return parentRepository.save(neuParent);
 
         }
-        //THROW A ROLE NOT FOUND EXCEPTION else
         return null;
     }
 
+    /**
+     * Finds a user corresponding to the id and edits it.
+     * Changes are stored in the database.
+     *
+     * @param id         Id of the user to be edited.
+     * @param editedUser Object containing the edited fields.
+     */
     @PutMapping(path = "/editUser/{id}")
-    public void editUsersMail(@PathVariable long id,
-                              @RequestBody User editedUser){
+    public void editUser(@PathVariable long id,
+                         @RequestBody User editedUser) {
         User toEdit = userService.findById(id);
         userService.changeTo(toEdit, editedUser);
-
         userJpaRepository.save(toEdit);
     }
 }

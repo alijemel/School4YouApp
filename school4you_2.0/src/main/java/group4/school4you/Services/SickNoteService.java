@@ -19,6 +19,17 @@ public class SickNoteService {
     @Autowired
     private SchoolClassRepository schoolClassRepository;
 
+    /**
+     * retrievers all sickNotes of users of a specific role that are in the
+     * same class. It can be all sick-notes of students of that class or all
+     * sick-notes of teachers of the class.
+     *
+     * @param roleAsString String representation of the role and will be
+     *                     converted to enum.
+     * @param classId Id of the class containing the targeted users with
+     *                sick-notes.
+     * @return List containing all the sick-notes for a user type in a class.
+     */
     public List<SickNote> getAllSickNotesByClassAndRole(String roleAsString,
                                                         Long classId) {
         List<SickNote> sickNotes = new ArrayList<>();

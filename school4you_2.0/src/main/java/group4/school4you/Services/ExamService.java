@@ -28,7 +28,6 @@ public class ExamService {
         return (Exam) examRepository.findById(examId).get();
     }
 
-
     public List<Exam> findAllByClassId(Long classId) {
         return  examRepository.findAllByClassId(classId);
     }
