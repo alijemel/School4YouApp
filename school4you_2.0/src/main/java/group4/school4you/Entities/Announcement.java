@@ -3,9 +3,6 @@ package group4.school4you.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import group4.school4you.Objects.Role;
-import group4.school4you.Objects.Visibility;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

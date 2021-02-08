@@ -3,19 +3,14 @@ package group4.school4you.Resources;
 import group4.school4you.Entities.Announcement;
 import group4.school4you.Entities.Inbox;
 import group4.school4you.Objects.Role;
-import group4.school4you.Objects.Visibility;
 import group4.school4you.Repositories.AnnouncementRepository;
 import group4.school4you.Repositories.InboxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

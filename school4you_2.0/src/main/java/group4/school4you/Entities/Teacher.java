@@ -39,14 +39,13 @@ public class Teacher extends User {
         if (schoolClass != null) {
             this.classes.add(schoolClass);
         }
-        //ELSE THROW EXCEPTION
         return schoolClass;
     }
 
     public SchoolClass removeClass(SchoolClass schoolClass) {
         if(schoolClass != null && this.classes.contains(schoolClass)) {
             this.classes.remove(schoolClass);
-        } //ELSE THROW EXCEPTION
+        }
         return schoolClass;
     }
 }
