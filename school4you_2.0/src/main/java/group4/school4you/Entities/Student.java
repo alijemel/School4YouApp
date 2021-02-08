@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * With this class it's possible to create student objects in the system. The class student extends the general class
+ * user.
+ */
 public class Student extends User {
 
     private Long familyId;

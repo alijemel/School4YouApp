@@ -7,6 +7,10 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * This class allows to create an inbox for a certain schoolclass. In this inbox it is possibly to store all sick notes
+ * of a schoolclass.
+ */
 public class SchoolClassInbox extends Inbox {
 
     @Id

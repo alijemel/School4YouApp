@@ -10,6 +10,9 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * With this class it's possible to create parent objects in the system. The class parent extends the general class user.
+ */
 public class Parent extends User {
 
     private Long familyId;

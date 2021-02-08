@@ -8,6 +8,9 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+/**
+ * This class represents an inbox in the system. It stores all announcements for a certain role.
+ */
 public class Inbox {
 
     @Id

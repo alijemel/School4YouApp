@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+/**
+ * This class is used to create appointments in the system. Weekly plans and an appointment planer are filled with
+ * appointments.
+ */
 public class Appointment {
 
     @Id

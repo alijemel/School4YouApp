@@ -8,6 +8,9 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * This class represents a schoolclass in the system. Objects of it store all students at teachers of one schoolclass.
+ */
 public class SchoolClass {
     @Id
     @GeneratedValue

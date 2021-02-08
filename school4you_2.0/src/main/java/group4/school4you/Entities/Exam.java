@@ -11,6 +11,9 @@ import java.time.LocalDate;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * This class extends the class appointment and enables teachers to create exams.
+ */
 public class Exam extends Appointment {
 
     private String description;

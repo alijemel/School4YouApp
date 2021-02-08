@@ -12,6 +12,10 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * With this class it's possible to create teacher objects in the system. The class teacher extends the general
+ * class user.
+ */
 public class Teacher extends User {
 
     @ManyToMany

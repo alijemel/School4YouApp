@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+/**
+ * The SchoolClassAnnouncement is used to create announcements for a certain schoolclass. So the teachers are able to
+ * create announcements only for one schoolclass.
+ */
 public class SchoolClassAnnouncement {
 
         @Id

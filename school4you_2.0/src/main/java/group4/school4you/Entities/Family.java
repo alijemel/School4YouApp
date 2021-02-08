@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+/**
+ * With this class the secretary members are able to create families. They put existing parents and students together
+ * and create a family.
+ */
 public class Family {
 
     @Id
