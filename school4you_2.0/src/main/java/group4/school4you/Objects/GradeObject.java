@@ -5,7 +5,9 @@ import group4.school4you.Entities.Grade;
 
 import java.util.Objects;
 
-// representiert eine pruefung und ihre note.
+/**
+ * This class represents an grade object. It has an exam and a grade for it.
+ */
 public class GradeObject {
 
     private Exam exam;

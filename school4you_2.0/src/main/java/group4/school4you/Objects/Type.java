@@ -1,6 +1,8 @@
 package group4.school4you.Objects;
 
-// art eines appointments entweder exam oder course
+/**
+ * This class represents the type of an appointment.
+ */
 public enum
 Type {
     EXAM, COURSE

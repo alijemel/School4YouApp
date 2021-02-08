@@ -1,7 +1,8 @@
 package group4.school4you.Objects;
 
-// Objeckt representation von einem passwort damit wir es nicht in url paths
-// senden sondern als objekt es ist sicherer.
+/**
+ * This class represents password objects. It is safer to send objects than plain text.
+ */
 
 import java.util.Objects;
 public class PasswordDto {

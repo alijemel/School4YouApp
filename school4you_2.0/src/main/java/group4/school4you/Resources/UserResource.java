@@ -11,6 +11,9 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+/**
+ * This class handles all requests from the frontend for users.
+ */
 public class UserResource {
 
     @Autowired

@@ -14,6 +14,9 @@ import javax.transaction.Transactional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+/**
+ * This class handles all requests from the frontend for announcements.
+ */
 public class AnnouncementResource {
 
     @Autowired

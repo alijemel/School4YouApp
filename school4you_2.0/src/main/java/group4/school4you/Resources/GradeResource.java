@@ -11,6 +11,9 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+/**
+ * This class handles all requests from the frontend for grades.
+ */
 public class GradeResource {
 
     @Autowired

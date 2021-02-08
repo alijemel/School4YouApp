@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+/**
+ * This class handles all requests from the frontend for presence.
+ */
 public class PresenceResource {
 
     @Autowired

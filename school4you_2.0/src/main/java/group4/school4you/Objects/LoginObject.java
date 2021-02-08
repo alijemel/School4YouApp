@@ -1,6 +1,8 @@
 package group4.school4you.Objects;
 
-// representiert die credentials beim login
+/**
+ * This class represents the credentials at login.
+ */
 public class LoginObject {
 
     private String email;

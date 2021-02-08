@@ -15,6 +15,9 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+/**
+ * This class handles all requests from the frontend for password verification.
+ */
 public class PasswordController {
 
     @Autowired

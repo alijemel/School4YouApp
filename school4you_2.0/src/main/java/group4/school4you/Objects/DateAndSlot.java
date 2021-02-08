@@ -3,7 +3,9 @@ package group4.school4you.Objects;
 import java.time.LocalDate;
 import java.util.Objects;
 
-//representiert ein object mit datum und zeit as slot
+/**
+ * This class represents an object with a certain date and slot.
+ */
 public class DateAndSlot {
 
     private LocalDate date;

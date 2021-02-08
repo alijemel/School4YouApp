@@ -1,9 +1,11 @@
 package group4.school4you.Objects;
 
-//representiert status eines feldes im stundenplan, view bedeutet man kann
-// nur sehen zb bei studenten und eltern , edit bedeutet es gibt ein
-// appointment und create bedeutet es ist frei und das sekretariat kann da
-// was planen.
+
+/**
+ * This enum represents the status of a field in the course planer. View means it is only allowed to have a look
+ * at this field, edit means there is already an appointment which can be edited and create means the field is free
+ * and the secretary can create an appointment there.
+ */
 public enum FieldStatus {
     UNAVAILABLE, CREATE, EDIT, VIEW, ERROR
 }
