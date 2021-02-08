@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Repository
 @Primary
+/**
+ * This interface represents the table in the database where user objects are stored. With creating instances of this
+ * interface the backend is able to communicate with the database tables and manipulate them.
+ */
 public interface UserJpaRepository extends JpaRepository<User,Long> {
 
     User findByEmail(String Email);
