@@ -16,14 +16,13 @@ public class LoginResource {
     @Autowired
     UserService userService;
 
-    @GetMapping(path = "/test")
-    public ResponseEntity<String> testMethod() throws RuntimeException {
-        if (true) {throw new RuntimeException("error message from ali");}
-
-        return new ResponseEntity<String>("Response entity of test method",
-                HttpStatus.OK);
-    }
-
+    /**
+     * Validates a login object containing credentials for user login.
+     *
+     * @param loginObject credentials of the user who wants to login.
+     * @return response entity with the authenticated user and HTTP status.ok
+     * if login successfull, throws exception if not.
+     */
     @PostMapping(path = "/test" )
     public ResponseEntity<Object> testPostMethod(@RequestBody LoginObject loginObject) {
         LoginObject credentials = loginObject;
@@ -34,5 +33,4 @@ public class LoginResource {
         return new ResponseEntity<>(authenticatedUser ,
                 HttpStatus.OK);
     }
-
 }
