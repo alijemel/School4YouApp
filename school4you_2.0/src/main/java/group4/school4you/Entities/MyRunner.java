@@ -7,6 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * This class implements default inboxes for each roles at startup of the system. So that announcements can be restored
+ * in the inboxes.
+ */
 public class MyRunner implements CommandLineRunner {
 
     @Autowired

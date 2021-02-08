@@ -10,6 +10,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+/**
+ * This class represents a sick note in the system. Teachers are able to create a sick note for themselves and parents
+ * can create sick notes for their children.
+ */
 public class SickNote {
 
     @Id

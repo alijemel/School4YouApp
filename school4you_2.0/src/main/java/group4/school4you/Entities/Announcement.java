@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+/**
+ * This class is used to create announcements in the system. Secretary members and teachers can create some announce-
+ * ments for several roles or classes.
+ */
 public class Announcement {
 
     @Id

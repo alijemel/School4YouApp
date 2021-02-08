@@ -9,6 +9,9 @@ import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+/**
+ * This class is the general user class. From this class all roles are inheriting.
+ */
 public class User {
     @Id
     @GeneratedValue

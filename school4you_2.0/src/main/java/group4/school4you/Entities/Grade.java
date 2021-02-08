@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+/**
+ * This class is for teachers to create grades for the students, after they have written an exam.
+ */
 public class Grade {
 
     @Id

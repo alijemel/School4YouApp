@@ -10,6 +10,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+/**
+ * This class is for the weekly planner. It helps to determine how long several appointments are stored in the weekly
+ * planner.
+ */
 public class Recurrence {
 
     @Id

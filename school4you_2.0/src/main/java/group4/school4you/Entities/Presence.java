@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+/**
+ * This class represents the presence of several users. Teachers can register presences for their students in the
+ * exams.
+ */
 public class Presence {
 
     @Id

@@ -7,6 +7,10 @@ import java.time.LocalDate;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+/**
+ * With this class it's possible to create secretary objects in the system. The class secretary extends the general
+ * class user. The secretary objects got several functions.
+ */
 public class Secretary extends User {
 
     public Secretary(){}
